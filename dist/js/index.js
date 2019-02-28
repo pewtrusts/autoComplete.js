@@ -3,7 +3,7 @@ const autoCompletejs = new autoComplete({
 	data: {
 		src: async () => {
 			// Loading placeholder text
-			document.querySelector("#autoComplete").setAttribute("placeholder", "Loading...");
+			document.querySelector(".autoComplete").setAttribute("placeholder", "Loading...");
 			// Fetch External Data Source
 			const source = await fetch("./db/generic.json");
 			const data = await source.json();
@@ -13,7 +13,7 @@ const autoCompletejs = new autoComplete({
 		key: "food"
 	},
 	placeHolder: "Food & Drinks",
-	selector: "#autoComplete",
+	selector: "#autoComplete-0",
 	threshold: 0,
 	searchEngine: "strict",
 	highlight: true,
@@ -23,7 +23,7 @@ const autoCompletejs = new autoComplete({
 			resultsListID = "autoComplete_results_list";
 			return resultsListID;
 		},
-		destination: document.querySelector("#autoComplete"),
+		destination: document.querySelector(".autoComplete"),
 		position: "afterend"
 	},
 	resultItem: (data, source) => {
@@ -34,22 +34,22 @@ const autoCompletejs = new autoComplete({
 		// Render selected choice to selection div
 		document.querySelector(".selection").innerHTML = selection;
 		// Clear Input
-		document.querySelector("#autoComplete").value = "";
+		document.querySelector(".autoComplete").value = "";
 		// Change placeholder with the selected value
-		document.querySelector("#autoComplete").setAttribute("placeholder", selection);
+		document.querySelector(".autoComplete").setAttribute("placeholder", selection);
 		// Concole log autoComplete data feedback
 		console.log(feedback);
 	}
 });
 
 // On page load add class to input field
-window.addEventListener("load", () => {
-	document.querySelector("#autoComplete").classList.add("out");
-	document.querySelector("#autoComplete_results_list").style.display = "none";
-});
+/*window.addEventListener("load", () => {
+	document.querySelector(".autoComplete").classList.add("out");
+	document.querySelector(".autoComplete_results_list").style.display = "none";
+});*/
 
 // Toggle Search Engine Type/Mode
-document.querySelector(".toggeler").addEventListener("click", () => {
+/*document.querySelector(".toggeler").addEventListener("click", () => {
 	// Holdes the toggle buttin alignment
 	const toggele = document.querySelector(".toggele").style.justifyContent;
 
@@ -93,10 +93,10 @@ const action = action => {
 // showing & hidding results list onfocus / blur
 // ["focus", "blur"].forEach(eventType => {
 ["focus", "blur", "mousedown", "keydown"].forEach(eventType => {
-	const input = document.querySelector("#autoComplete");
-	const resultsList = document.querySelector("#autoComplete_results_list");
+	const input = document.querySelector(".autoComplete");
+	const resultsList = document.querySelector(".autoComplete_results_list");
 
-	document.querySelector("#autoComplete").addEventListener(eventType, event => {
+	document.querySelector(".autoComplete").addEventListener(eventType, event => {
 		// Hide results list & show other elemennts
 		if (eventType === "blur") {
 			action("dim");
@@ -124,17 +124,17 @@ const action = action => {
 
 // Toggle Input Classes on results list focus to keep style
 ["focusin", "focusout", "keydown"].forEach(eventType => {
-	document.querySelector("#autoComplete_results_list").addEventListener(eventType, event => {
+	document.querySelector(".autoComplete_results_list").addEventListener(eventType, event => {
 		if (eventType === "focusin") {
 			if (event.target && event.target.nodeName === "LI") {
 				action("light");
-				document.querySelector("#autoComplete").classList.remove("out");
-				document.querySelector("#autoComplete").classList.add("in");
+				document.querySelector(".autoComplete").classList.remove("out");
+				document.querySelector(".autoComplete").classList.add("in");
 			}
 		} else if (eventType === "focusout" || event.keyCode === 13) {
 			action("dim");
-			document.querySelector("#autoComplete").classList.remove("in");
-			document.querySelector("#autoComplete").classList.add("out");
+			document.querySelector(".autoComplete").classList.remove("in");
+			document.querySelector(".autoComplete").classList.add("out");
 		}
 	});
-});
+});*/
