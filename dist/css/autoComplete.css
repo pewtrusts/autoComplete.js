@@ -105,12 +105,12 @@
     border-radius: 0 0 1rem 1rem;
 }*/
 
-.autoComplete_result:hover, .autoComplete_result:focus {
+/*.autoComplete_result:hover, .autoComplete_result:focus {
     cursor: pointer;
     background-color: rgba(0,0,0,0.1);
     outline: none;
     
-}
+}*/
 
 /*.autoComplete_result:focus {
     outline: none;
