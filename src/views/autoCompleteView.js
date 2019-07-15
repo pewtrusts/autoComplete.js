@@ -88,7 +88,7 @@ const navigation = (selector, resultsList) => {
         if (active === input && resultsList.childNodes.length > 0) {
           first.focus();
         } else if (active !== resultsList.lastChild) {
-          active.nextSibling.focus();
+          active.nextElementSibling.focus();
         }
         break;
     }
