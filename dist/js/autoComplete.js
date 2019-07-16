@@ -164,7 +164,7 @@
           }
           return match.join("");
         } else {
-          if (recordLowerCase.includes(query)) {
+          if (recordLowerCase.includes(query) && recordLowerCase.indexOf(query) === 0) {
             if (highlight) {
               var inputValue = autoCompleteView.getInput(this.selector).value.toLowerCase();
               return recordLowerCase.replace(inputValue, autoCompleteView.highlight(inputValue));
